@@ -1,7 +1,13 @@
-// swift-tools-version: 5.8
+// swift-tools-version: 5.7
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
+
+#if (arch(arm64) || arch(arm))
+let useNeon = true
+#else
+let useNeon = false
+#endif
 
 let package = Package(
     name: "libpng",
@@ -20,7 +26,9 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "libpng",
-            dependencies: []),
+            cSettings: [
+                .define("PNG_ARM_NEON_OPT", to: useNeon ? "2" : "0")
+            ]),
         .testTarget(
             name: "libpngTests",
             dependencies: ["libpng"]),
