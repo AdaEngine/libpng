@@ -1,5 +1,5 @@
 cc_library(
-    name = "_libpng_cxx",
+    name = "libpng",
     srcs = [
         "Sources/libpng/png.c",
         "Sources/libpng/include/pngdebug.h",
