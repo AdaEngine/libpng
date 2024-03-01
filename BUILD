@@ -42,5 +42,7 @@ cc_library(
         "//conditions:default": [],
     }),
     linkopts = ["-lm"],
-    deps = ["@zlib"]
+    deps = ["@zlib"],
+    visibility = ["//visibility:public"],
+    tags = ["swift_module=libpng"]
 )
