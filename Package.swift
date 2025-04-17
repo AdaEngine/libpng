@@ -26,6 +26,27 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "libpng",
+            sources: [
+                "png.c",
+                "pngerror.c",
+                "pngget.c",
+                "pngmem.c",
+                "pngpread.c",
+                "pngread.c",
+                "pngrio.c",
+                "pngrtran.c",
+                "pngrutil.c",
+                "pngset.c",
+                "pngtrans.c",
+                "pngwio.c",
+                "pngwrite.c",
+                "pngwtran.c",
+                "pngwutil.c",
+                "arm/arm_init.c",
+                "arm/filter_neon_intrinsics.c",
+                "arm/palette_neon_intrinsics.c",
+            ],
+            publicHeadersPath: "include",
             cSettings: [
                 .define("PNG_ARM_NEON_OPT", to: useNeon ? "2" : "0")
             ]),
